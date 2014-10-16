@@ -124,7 +124,10 @@ app.AppView = Backbone.View.extend({
   // Save
   saveDraft: function() {
     if (!app.draftId) {
-      app.drafts.create(this.attrsOnEditor());
+      var draft = new app.Draft(this.attrsOnEditor());
+      if(draft.isValid()) {
+        app.drafts.create(this.attrsOnEditor());
+      }
     } else {
       app.drafts.get(app.draftId).save(this.attrsOnEditor());
     }
