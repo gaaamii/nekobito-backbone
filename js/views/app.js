@@ -27,7 +27,6 @@ app.AppView = Backbone.View.extend({
 
     // ビューをセット
     this.prependAllDrafts();
-    // this.setDraft(app.drafts.last());
     this.preview();
 
     // 選択中のモデルのIDを保持
