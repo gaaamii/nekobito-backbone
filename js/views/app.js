@@ -10,27 +10,29 @@ app.AppView = Backbone.View.extend({
     // localStorageのレコードを取得
     app.drafts.fetch();
 
-    // DOMをキャッシュ
+    // Cache the DOMs
+
+    // Sidebar
     this.$sidebar = $("#sidebar");
     this.$draftsList = $("#draftsList");
 
+    // Editor
     this.$title = $("#title");
     this.$body = $("#body");
     this.$notice = $("#notice");
 
+    // Preview
     this.$previewTitle = $("#preview-title");
     this.$previewBody = $("#preview-body");
 
-    // コレクションを監視
+    // Watch the collection
     this.listenTo(app.drafts, "add", this.prependDraft);
     this.listenTo(app.drafts, "all", this.refreshDraftId);
 
-    // ビューをセット
+    // Set the views
     this.prependAllDrafts();
     this.preview();
 
-    // 選択中のモデルのIDを保持
-    this.refreshDraftId();
   },
 
   events: {
@@ -69,9 +71,13 @@ app.AppView = Backbone.View.extend({
 
   // Destroy
   destroyDraft: function() {
-    if(confirm("削除する？")) {
-      app.drafts.get(app.draftId).destroy();
-      this.openBlank();
+    if(app.draftId) {
+      if(confirm("Are you sure?")) {
+        app.drafts.get(app.draftId).destroy();
+        this.openBlank();
+      }
+    } else {
+      alert("Not selected.");
     }
   },
 
@@ -80,6 +86,7 @@ app.AppView = Backbone.View.extend({
     this.hideSidebar();
     this.setDraft("");
     this.preview();
+    this.$title.focus();
     app.draftId = "";
   },
 
