@@ -7,7 +7,7 @@ app.AppView = Backbone.View.extend({
   el: 'body',
 
   initialize: function() {
-    // get records from localStorage
+    // Get records from localStorage
     app.drafts.fetch();
 
     // Cache the DOMs
@@ -67,7 +67,8 @@ app.AppView = Backbone.View.extend({
   attachVimLikeKey: function() {
     app.draftIndex = 0;
     var draftItems = this.$draftsList.children();
-    var $current = $(draftItems[app.draftIndex]);
+    var $current 
+      = $(draftItems[app.draftIndex]).addClass("selected");
     this.$el.on("keypress", function(e) {
       if(e.keyCode === 106) {
         if(app.draftIndex < draftItems.length -1) {
@@ -102,18 +103,16 @@ app.AppView = Backbone.View.extend({
   },
 
   // Sidebar
-  hideSidebar: function() {
-    this.$sidebar.fadeOut(50);
-    this.detachVimLikeKey();
-  },
 
   showSidebar: function() {
     this.$sidebar.fadeIn(50);
     this.$title.blur();
-    var $draftItem = $(this.$draftsList.children()[0]);
-    $draftItem.addClass("selected");
-    app.selectedId = $draftItem.attr("data-id");
     this.attachVimLikeKey();
+  },
+
+  hideSidebar: function() {
+    this.$sidebar.fadeOut(50);
+    this.detachVimLikeKey();
   },
 
   prependDraft: function(draft) {
@@ -154,10 +153,8 @@ app.AppView = Backbone.View.extend({
   // Navigation
   toggleList: function() {
     if(this.$sidebar.css("display") === "block") {
-      // When close this
       this.hideSidebar();
     } else {
-      // When open this
       this.showSidebar();
     }
   },
