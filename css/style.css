@@ -186,11 +186,10 @@ blockquote {
   cursor: pointer;
   color: #aaa;
 }
-.draft-item:hover {
+.selected, .draft-item:hover {
   background: #555;
   color: #fff;
 }
-
 #notice {
   float: left;
 }

@@ -31,7 +31,6 @@ app.DraftView = Backbone.View.extend({
   },
 
   render: function() {
-    // <li class="draft-item">タイトル</li>
     this.$el.html( this.template( this.model.attributes ) );
     return this;
   },

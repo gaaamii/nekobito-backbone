@@ -7,7 +7,7 @@ app.AppView = Backbone.View.extend({
   el: 'body',
 
   initialize: function() {
-    // localStorageのレコードを取得
+    // get records from localStorage
     app.drafts.fetch();
 
     // Cache the DOMs
@@ -17,6 +17,7 @@ app.AppView = Backbone.View.extend({
     this.$draftsList = $("#draftsList");
 
     // Editor
+    this.$editor = $("#editor");
     this.$title = $("#title");
     this.$body = $("#body");
     this.$notice = $("#notice");
@@ -39,7 +40,7 @@ app.AppView = Backbone.View.extend({
     // Whole 
     "keydown": "reactToKey",
     // Sidebar
-    "click .menuBar": "toggleMenu",
+    "click .menuBar": "toggleList",
     "click .draft-item": "openDraft",
     // Editor
     "focus #editor": "hideSidebar",
@@ -54,7 +55,7 @@ app.AppView = Backbone.View.extend({
       if(e.keyCode === 83) {
         this.saveDraft();
       } else if(e.keyCode === 76) {
-        this.toggleMenu();
+        this.toggleList();
       } else if(e.keyCode === 68) {
         this.destroyDraft();
       } else if(e.keyCode === 78) {
@@ -63,10 +64,65 @@ app.AppView = Backbone.View.extend({
     }
   },
 
+  attachVimLikeKey: function() {
+    app.draftIndex = 0;
+    var draftItems = this.$draftsList.children();
+    var $current = $(draftItems[app.draftIndex]);
+    this.$el.on("keypress", function(e) {
+      if(e.keyCode === 106) {
+        if(app.draftIndex < draftItems.length -1) {
+          $current.removeClass("selected");
+          app.draftIndex++;
+          $current = $(draftItems[app.draftIndex])
+            .addClass("selected");
+        }
+      } else if(e.keyCode === 107) {
+        if(app.draftIndex !== 0) {
+          $current.removeClass("selected");
+          app.draftIndex--;
+          $current = $(draftItems[app.draftIndex])
+            .addClass("selected");
+        }
+      } else if(e.keyCode === 111) {
+        $current
+          .click()
+          .removeClass("selected");
+      }
+    });
+  },
+
+  detachVimLikeKey: function() {
+    this.$el.unbind("keypress");
+  },
+
   refreshDraftId: function() {
     if(app.drafts.length != 0) {
       app.draftId = app.drafts.last().id;
     }
+  },
+
+  // Sidebar
+  hideSidebar: function() {
+    this.$sidebar.fadeOut(50);
+    this.detachVimLikeKey();
+  },
+
+  showSidebar: function() {
+    this.$sidebar.fadeIn(50);
+    this.$title.blur();
+    var $draftItem = $(this.$draftsList.children()[0]);
+    $draftItem.addClass("selected");
+    app.selectedId = $draftItem.attr("data-id");
+    this.attachVimLikeKey();
+  },
+
+  prependDraft: function(draft) {
+    var view = new app.DraftView({ model: draft });
+    this.$draftsList.prepend(view.render().el);
+  },
+
+  prependAllDrafts: function() {
+    app.drafts.each(this.prependDraft, this);
   },
 
   // Destroy
@@ -90,28 +146,20 @@ app.AppView = Backbone.View.extend({
     app.draftId = "";
   },
 
-  openDraft: function(e){
+  openDraft: function(e) {
     this.hideSidebar();
     app.draftId = ($(e.target).attr("data-id"));
   },
 
-  // Sidebar
-  hideSidebar: function() {
-    this.$sidebar.fadeOut(50);
-  },
-
-  prependDraft: function(draft) {
-    var view = new app.DraftView({ model: draft });
-    this.$draftsList.prepend(view.render().el);
-  },
-
-  prependAllDrafts: function() {
-    app.drafts.each(this.prependDraft, this);
-  },
-
   // Navigation
-  toggleMenu: function() {
-    this.$sidebar.toggle(50);
+  toggleList: function() {
+    if(this.$sidebar.css("display") === "block") {
+      // When close this
+      this.hideSidebar();
+    } else {
+      // When open this
+      this.showSidebar();
+    }
   },
 
   // Preview
