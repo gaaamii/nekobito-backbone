@@ -14,14 +14,16 @@ h2 {
 h3 { font-size: 18px; }
 h4 { font-size: 16px; }
 
-/* styles */
-/* bootstrap を上書き */
+/* overwrite bootstrap */
 html{ height: 100%; }
 body, .editor-wrapper, form, #editor { height: inherit; }
 body {
   font-size: 16px;
   font-family: "Monaco", monospace, Helvetica Neue, Helvetica, "Hiragino Kaku Gothic Pro", "Lucida Grande", Verdana, Arial, Meiryo, sans-serif; 
   font-size: 14px;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  outline: none;
 }
 .fa { margin-right: 3px; }
 .row {
@@ -108,7 +110,7 @@ blockquote {
   outline: 0;
 }
 
-/* main */
+/* Main */
 #editor {
   width: 100%;
   height: 100%;
@@ -133,7 +135,7 @@ blockquote {
   font-size: 14px;
 }
 
-/* preview */
+/* Preview */
 .preview-wrapper {
   height: 100%;
   border-left: 1px solid #eee;
@@ -163,7 +165,7 @@ blockquote {
   margin: 0;
 }
 
-/* ListView */
+/* Sidebar */
 #sidebar {
   z-index: 1;
   padding: 0;
