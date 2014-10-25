@@ -178,7 +178,7 @@ app.AppView = Backbone.View.extend({
 
   notice: function() {
     this.$notice.fadeIn("fast", function() {
-      $(this).fadeOut("slow");
+      $notice.fadeOut("slow");
     });
   },
 
