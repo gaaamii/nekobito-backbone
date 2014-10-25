@@ -71,7 +71,7 @@ app.AppView = Backbone.View.extend({
           $current = $(draftItems[app.draftIndex]).addClass("selected");
         }
       } else if(e.keyCode === 107) {
-        if(app.draftIndex !== 0) {
+        if(app.draftIndex >= 0) {
           $current.removeClass("selected");
           app.draftIndex--;
           $current = $(draftItems[app.draftIndex]).addClass("selected");
