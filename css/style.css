@@ -194,9 +194,10 @@ blockquote {
   border-bottom: 1px solid #333;
   cursor: pointer;
   color: #aaa;
+  transition: .1s;
 }
 .selected, .draft-item:hover {
-  background: #000;
+  background: rgb(0, 142, 61); 
   color: #fff;
 }
 #notice {

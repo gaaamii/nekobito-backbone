@@ -60,24 +60,21 @@ app.AppView = Backbone.View.extend({
   },
 
   attachVimLikeKey: function() {
-    app.draftIndex = 0;
+    app.draftIndex = -1;
     var draftItems = this.$draftsList.children();
-    var $current = 
-      $(draftItems[app.draftIndex]).addClass("selected");
+    var $current = $(draftItems[app.draftIndex]).addClass("selected");
     this.$el.on("keypress", function(e) {
       if(e.keyCode === 106) {
         if(app.draftIndex < draftItems.length -1) {
           $current.removeClass("selected");
           app.draftIndex++;
-          $current = $(draftItems[app.draftIndex])
-            .addClass("selected");
+          $current = $(draftItems[app.draftIndex]).addClass("selected");
         }
       } else if(e.keyCode === 107) {
         if(app.draftIndex !== 0) {
           $current.removeClass("selected");
           app.draftIndex--;
-          $current = $(draftItems[app.draftIndex])
-            .addClass("selected");
+          $current = $(draftItems[app.draftIndex]).addClass("selected");
         }
       } else if(e.keyCode === 111) {
         $current.click();
@@ -86,6 +83,7 @@ app.AppView = Backbone.View.extend({
   },
 
   detachVimLikeKey: function() {
+    this.$draftsList.find(".selected").removeClass("selected");
     this.$el.off("keypress");
   },
 
@@ -122,15 +120,14 @@ app.AppView = Backbone.View.extend({
   // Sidebar
 
   showSidebar: function() {
-    this.$sidebar.fadeIn(50);
+    this.$sidebar.fadeIn(150);
     this.$title.blur();
     this.$body.blur();
     this.attachVimLikeKey();
   },
 
   hideSidebar: function() {
-    this.$sidebar.fadeOut(50);
-    this.detachVimLikeKey();
+    this.$sidebar.fadeOut(150, this.detachVimLikeKey());
   },
 
   prependDraft: function(draft) {
