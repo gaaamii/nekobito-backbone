@@ -1,15 +1,18 @@
 /* basic size */
+h1,h2,h3,h4 {
+  font-family: Helvetica;
+}
 h1 { 
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
 }
 h2 {
-  font-size: 18px;
+  font-size: 20px;
   padding: 10px;
   border-bottom: 1px solid #eee;
 }
-h3 { font-size: 16px; }
-h3 { font-size: 15px; }
+h3 { font-size: 18px; }
+h4 { font-size: 16px; }
 
 /* styles */
 /* bootstrap を上書き */
@@ -57,15 +60,17 @@ blockquote {
   width: 100%;
   border-radius: 0;
   background: #ccc;
-  color: #000;
+  color: #fff;
   border: 0;
   font-size: 14px;
   padding: 10px;
-  border-right: 1px solid #eee;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  background: rgb(0, 168, 72);
 }
 .btn-add:hover {
-  background: #fff;
-  color: #000;
+  color: #fff;
+  background: rgb(0, 142, 61);
 }
 .btn-add:focus {
   outline: 0;
@@ -95,6 +100,9 @@ blockquote {
 .btn-basic:hover {
   color: #fff;
   background: #000;
+}
+#saveBtn:hover {
+  background: rgb(0, 168, 72);
 }
 .btn-basic:focus {
   outline: 0;
@@ -145,6 +153,9 @@ blockquote {
   text-align: center;
   margin-bottom: 60px;
 }
+#preview-body h1 {
+  margin: 40px 0 20px 0;
+}
 #preview-body p {
   margin-bottom: 30px;
 }
@@ -155,27 +166,23 @@ blockquote {
 /* ListView */
 #sidebar {
   z-index: 1;
-  opacity: .85;
   padding: 0;
   margin: 0;
   height: 100%;
   width: 250px;
-  background: #000;
+  background: #191919;
   display: none;
   position: absolute;
   top:0;
 }
-#sidebar:hover {
-  opacity: 1.0;
-}
 .row-sidebar {
-  height: 5%;
+  height: 6%;
   width: 100%;
 }
 #draftsList {
   margin: 0;
   padding: 0;
-  height: 90%;
+  height: 88%;
   overflow-y: scroll;
 }
 .draft-item {
@@ -187,7 +194,7 @@ blockquote {
   color: #aaa;
 }
 .selected, .draft-item:hover {
-  background: #555;
+  background: #000;
   color: #fff;
 }
 #notice {

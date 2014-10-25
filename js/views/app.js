@@ -7,30 +7,25 @@ app.AppView = Backbone.View.extend({
   el: 'body',
 
   initialize: function() {
-    // Get records from localStorage
+    // get records from localStorage
     app.drafts.fetch();
 
-    // Cache the DOMs
-
-    // Sidebar
+    // cache the DOMs
     this.$sidebar = $("#sidebar");
     this.$draftsList = $("#draftsList");
 
-    // Editor
-    this.$editor = $("#editor");
     this.$title = $("#title");
     this.$body = $("#body");
     this.$notice = $("#notice");
 
-    // Preview
     this.$previewTitle = $("#preview-title");
     this.$previewBody = $("#preview-body");
 
-    // Watch the collection
+    // watch the collection
     this.listenTo(app.drafts, "add", this.prependDraft);
-    this.listenTo(app.drafts, "all", this.refreshDraftId);
+    this.listenTo(app.drafts, "destroy", this.refreshDraftId);
 
-    // Set the views
+    // set the views
     this.prependAllDrafts();
     this.preview();
 
@@ -67,8 +62,8 @@ app.AppView = Backbone.View.extend({
   attachVimLikeKey: function() {
     app.draftIndex = 0;
     var draftItems = this.$draftsList.children();
-    var $current 
-      = $(draftItems[app.draftIndex]).addClass("selected");
+    var $current = 
+      $(draftItems[app.draftIndex]).addClass("selected");
     this.$el.on("keypress", function(e) {
       if(e.keyCode === 106) {
         if(app.draftIndex < draftItems.length -1) {
@@ -85,9 +80,7 @@ app.AppView = Backbone.View.extend({
             .addClass("selected");
         }
       } else if(e.keyCode === 111) {
-        $current
-          .click()
-          .removeClass("selected");
+        $current.click();
       }
     });
   },
@@ -97,31 +90,7 @@ app.AppView = Backbone.View.extend({
   },
 
   refreshDraftId: function() {
-    if(app.drafts.length != 0) {
-      app.draftId = app.drafts.last().id;
-    }
-  },
-
-  // Sidebar
-
-  showSidebar: function() {
-    this.$sidebar.fadeIn(50);
-    this.$title.blur();
-    this.attachVimLikeKey();
-  },
-
-  hideSidebar: function() {
-    this.$sidebar.fadeOut(50);
-    this.detachVimLikeKey();
-  },
-
-  prependDraft: function(draft) {
-    var view = new app.DraftView({ model: draft });
-    this.$draftsList.prepend(view.render().el);
-  },
-
-  prependAllDrafts: function() {
-    app.drafts.each(this.prependDraft, this);
+    app.draftId = "";
   },
 
   // Destroy
@@ -145,9 +114,32 @@ app.AppView = Backbone.View.extend({
     app.draftId = "";
   },
 
-  openDraft: function(e) {
+  openDraft: function(e){
     this.hideSidebar();
-    app.draftId = ($(e.target).attr("data-id"));
+    app.draftId = ($(e.target).attr("data-cid"));
+  },
+
+  // Sidebar
+
+  showSidebar: function() {
+    this.$sidebar.fadeIn(50);
+    this.$title.blur();
+    this.$body.blur();
+    this.attachVimLikeKey();
+  },
+
+  hideSidebar: function() {
+    this.$sidebar.fadeOut(50);
+    this.detachVimLikeKey();
+  },
+
+  prependDraft: function(draft) {
+    var view = new app.DraftView({ model: draft });
+    this.$draftsList.prepend(view.render().el);
+  },
+
+  prependAllDrafts: function() {
+    app.drafts.each(this.prependDraft, this);
   },
 
   // Navigation
@@ -179,6 +171,7 @@ app.AppView = Backbone.View.extend({
       var draft = new app.Draft(this.attrsOnEditor());
       if(draft.isValid()) {
         app.drafts.create(draft);
+        app.draftId = draft.id;
       }
     } else {
       app.drafts.get(app.draftId).save(this.attrsOnEditor());

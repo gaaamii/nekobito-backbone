@@ -11,7 +11,7 @@ app.DraftView = Backbone.View.extend({
   template: _.template( $('#draft-template').html() ),
 
   initialize: function() {
-    this.$el.attr("data-id", this.model.get("id"));
+    this.$el.attr("data-cid", this.model.cid);
     this.listenTo(this.model, "change:title", this.render);
     this.listenTo(this.model, "destroy", this.remove);
   },
@@ -25,9 +25,10 @@ app.DraftView = Backbone.View.extend({
     var title = this.model.get("title");
     var body = this.model.get("body");
     $("#title").val(title);
-    $("#body").val(body);
+    $("#body").val(body)
     $("#preview-title").html(title);
     $("#preview-body").html(marked(body));
+    this.$el.removeClass("selected");
   },
 
   render: function() {
