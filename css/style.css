@@ -199,6 +199,7 @@ blockquote {
 .selected, .draft-item:hover {
   background: rgb(0, 142, 61); 
   color: #fff;
+  border: 0;
 }
 #notice {
   float: left;
