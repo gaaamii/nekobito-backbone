@@ -86,7 +86,7 @@ app.AppView = Backbone.View.extend({
   },
 
   detachVimLikeKey: function() {
-    this.$el.unbind("keypress");
+    this.$el.off("keypress");
   },
 
   refreshDraftId: function() {
