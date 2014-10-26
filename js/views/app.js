@@ -87,8 +87,8 @@ app.AppView = Backbone.View.extend({
     this.$el.off("keypress");
   },
 
-  refreshDraftId: function() {
-    app.draftId = "";
+  refreshDraftId: function(draftId) {
+    app.draftId = draftId || "";
   },
 
   // Destroy
@@ -109,7 +109,7 @@ app.AppView = Backbone.View.extend({
     this.setDraft("");
     this.preview();
     this.$title.focus();
-    app.draftId = "";
+    this.refreshDraftId();
   },
 
   openDraft: function(e){
@@ -164,22 +164,30 @@ app.AppView = Backbone.View.extend({
 
   // Save
   saveDraft: function() {
+    var draft, msg;
+    // get the draft
     if (!app.draftId) {
-      var draft = new app.Draft(this.attrsOnEditor());
-      if(draft.isValid()) {
-        app.drafts.create(draft);
-        app.draftId = draft.id;
-      }
+      draft = new app.Draft(this.attrsOnEditor());
     } else {
-      app.drafts.get(app.draftId).save(this.attrsOnEditor());
+      draft = app.drafts.get(app.draftId).set(this.attrsOnEditor());
     }
-    this.notice();
+    // validate the draft
+    if(draft.isValid()) {
+      // create
+      app.drafts.create(draft);
+      this.refreshDraftId(draft.id);
+      msg = "Saved.";
+    } else {
+      msg = draft.validationError;
+    }
+    this.notice(msg);
   },
 
-  notice: function() {
-    this.$notice.fadeIn("fast", function() {
-      $notice.fadeOut("slow");
-    });
+  notice: function(msg) {
+    this.$notice
+      .text(msg)
+      .fadeIn(300)
+      .fadeOut(800);
   },
 
   // Editor
