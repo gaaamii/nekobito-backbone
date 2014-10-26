@@ -1,10 +1,13 @@
 /* basic size */
 h1,h2,h3,h4 {
   font-family: Helvetica;
+  font-weight: bold;
+}
+h2,h3,h4 {
+  color: #555;
 }
 h1 { 
   font-size: 22px;
-  font-weight: bold;
 }
 h2 {
   font-size: 20px;
@@ -17,11 +20,6 @@ h4 { font-size: 16px; }
 /* overwrite bootstrap */
 html{ height: 100%; }
 body, .editor-wrapper, form, #editor { height: inherit; }
-body {
-  font-size: 16px;
-  font-family: "Monaco", monospace, Helvetica Neue, Helvetica, "Hiragino Kaku Gothic Pro", "Lucida Grande", Verdana, Arial, Meiryo, sans-serif; 
-  font-size: 14px;
-}
 .btn:focus, .btn:active:focus, .btn.active:focus {
   outline: none;
 }
@@ -34,10 +32,7 @@ body {
   height: 93%;
 }
 .alert { border: 0;}
-blockquote {
-  font-size: 14px;
-  background: #f3f3f3;
-}
+
 /* Navigation */
 .navigation {
   width: 100%;
@@ -147,21 +142,30 @@ blockquote {
 }
 #preview-title {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  font-family: serif;
+  font-size: 28px;
+  font-weight: normal;
 }
 #preview-body h1 {
   margin: 40px 0 20px 0;
+  color: #444;
 }
 #preview-body p {
-  font-size: 18px;
-  font-family: serif;
+  font-size: 16px;
+  letter-spacing: .5px;
   text-indent: 1em;
   margin-bottom: 30px;
 }
+#preview-body blockquote {
+  font-size: 1em;
+  background: #f3f3f3;
+  border: 0;
+}
 #preview-body blockquote p {
+  padding: 1em .5em;
   margin: 0;
 }
-
 /* Sidebar */
 #sidebar {
   z-index: 1;
