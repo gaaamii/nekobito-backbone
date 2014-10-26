@@ -8,13 +8,12 @@ app.Draft = Backbone.Model.extend({
   // title: String
   // body: String
   
-  // モデルが永続化されるときに呼び出される。
   validate: function(attrs) {
 
     if(!attrs.title) {
-      return "タイトルを入力してください。";
+      return "Title can't be blank.";
     } else if(!attrs.body) {
-      return "本文を入力してください。";
+      return "Body can't be blank.";
     }
 
   },
@@ -26,9 +25,5 @@ app.Draft = Backbone.Model.extend({
     });
 
   },
-
-  printError: function(model, error) {
-    console.log(error); 
-  }
 
 });
