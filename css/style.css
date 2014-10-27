@@ -11,8 +11,6 @@ h1 {
 }
 h2 {
   font-size: 20px;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
 }
 h3 { font-size: 18px; }
 h4 { font-size: 16px; }
@@ -36,11 +34,12 @@ body, .editor-wrapper, form, #editor { height: inherit; }
 /* Navigation */
 .navigation {
   width: 100%;
-  height: 5%;
+  height: 7%;
   border-bottom: 1px solid #eee;
   text-align: center;
   background: #fcfcfc;
   margin-bottom: 2px;
+  padding: 5px;
 }
 /* brand */
 .brand {
@@ -48,7 +47,6 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   margin: 0 20px;
   height: 20px;
   display: inline-block;
-  font-weight: bold;
   opacity: .5;
 }
 
@@ -64,6 +62,7 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
   background: rgb(0, 168, 72);
+  height: 100%;
 }
 .btn-add:hover {
   color: #fff;
@@ -73,13 +72,19 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   outline: 0;
 }
 .menuBar {
-  height: 35px;
+  width: 34px;
+  height: 34px;
   z-index: 2;
   position: absolute;
+  border: 1px solid rgb(147, 232, 184);
+  border-radius: 17px;
+  color: rgb(0, 168, 72);
+  background: #fff; 
 }
 .menuBar:hover {
-  background: #222;
+  background: rgb(0, 168, 72);
   color: #fff;
+  border: 1px solid #eee;
 }
 .buttons {
   text-align: right;
@@ -146,6 +151,8 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   font-family: serif;
   font-size: 28px;
   font-weight: normal;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
 }
 #preview-body h1 {
   margin: 40px 0 20px 0;
@@ -156,6 +163,9 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   letter-spacing: .5px;
   text-indent: 1em;
   margin-bottom: 30px;
+}
+#preview-body ul {
+  padding: .5em 1em;
 }
 #preview-body blockquote {
   font-size: 1em;
@@ -179,13 +189,12 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   top:0;
 }
 .row-sidebar {
-  height: 6%;
+  height: 7%;
   width: 100%;
 }
 #draftsList {
   margin: 0;
   padding: 0;
-  height: 88%;
   overflow-y: scroll;
 }
 .draft-item {
