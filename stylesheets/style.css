@@ -47,7 +47,6 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   margin: 0 20px;
   height: 20px;
   display: inline-block;
-  opacity: .5;
 }
 
 /* buttons */
@@ -80,6 +79,7 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   border-radius: 17px;
   color: rgb(0, 168, 72);
   background: #fff; 
+  margin: 5px;
 }
 .menuBar:hover {
   background: rgb(0, 168, 72);
