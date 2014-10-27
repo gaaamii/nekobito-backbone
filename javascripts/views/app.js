@@ -11,6 +11,7 @@ app.AppView = Backbone.View.extend({
     app.drafts.fetch();
 
     // cache the DOMs
+    this.$navigation = $(".navigation");
     this.$sidebar = $("#sidebar");
     this.$draftsList = $("#draftsList");
 
@@ -38,11 +39,22 @@ app.AppView = Backbone.View.extend({
     "click .menuBar": "toggleList",
     "click .draft-item": "openDraft",
     // Editor
-    "focus #editor": "hideSidebar",
+    "focus #editor": "focusOnEditor",
+    "blur #editor": "blurEditor",
     "keyup #editor": "preview",
     "click #saveBtn": "saveDraft",
     "click #deleteBtn": "destroyDraft",
     "click #addBtn": "openBlank"
+  },
+
+  // TODO: change function's name
+  blurEditor: function() {
+    this.$navigation.css("opacity", "1.0");
+  },
+
+  focusOnEditor: function() {
+    this.hideSidebar();
+    this.$navigation.css("opacity", "0.5");
   },
 
   reactToKey: function(e) {
