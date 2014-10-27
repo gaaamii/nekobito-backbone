@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="description" content="Nekobito is a Markdown text editor which enables you to write more comfortably.">
   <title>Nekobito - Markdown Editor on Browser</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/font-awesome.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
+  <link rel="stylesheet" href="stylesheets/font-awesome.min.css" />
+  <link rel="stylesheet" href="stylesheets/style.css" />
   <link rel="shortcut icon" href="images/favicon.ico">
 </head>
 <body>
+  <div class="menuBar" style="float:left; padding: 5px 10px; cursor: pointer;">
+    <i class="fa fa-bars"></i>
+  </div>
   <div class="navigation">
-    <div class="menuBar" style="float:left; padding: 5px 10px; cursor: pointer;">
-      <i class="fa fa-bars"></i>
-    </div>
     <span class="brand"><img src="images/nekobito.png" style="width: 15px; margin-right:3px; margin-top: -3px;">Nekobito - A Markown Text Editor on Browser</span>
   </div>
   <div id="main" class="row">
@@ -51,15 +51,15 @@
   <script type="text/template" id="draft-template">
     <%- title %>
   </script>
-  <script src="js/lib/jquery.min.js" type="text/javascript"></script>
-  <script src="js/lib/underscore-min.js" type="text/javascript"></script>
-  <script src="js/lib/backbone-min.js" type="text/javascript"></script>
-  <script src="js/lib/backbone.localStorage-min.js" type="text/javascript"></script>
-  <script src="js/lib/marked.js" type="text/javascript"></script>
-  <script src="js/models/draft.js" type="text/javascript"></script>
-  <script src="js/collections/drafts.js" type="text/javascript"></script>
-  <script src="js/views/draft.js" type="text/javascript"></script>
-  <script src="js/views/app.js" type="text/javascript"></script>
-  <script src="js/app.js" type="text/javascript"></script>
+  <script src="javascripts/lib/jquery.min.js" type="text/javascript"></script>
+  <script src="javascripts/lib/underscore-min.js" type="text/javascript"></script>
+  <script src="javascripts/lib/backbone-min.js" type="text/javascript"></script>
+  <script src="javascripts/lib/backbone.localStorage-min.js" type="text/javascript"></script>
+  <script src="javascripts/lib/marked.js" type="text/javascript"></script>
+  <script src="javascripts/models/draft.js" type="text/javascript"></script>
+  <script src="javascripts/collections/drafts.js" type="text/javascript"></script>
+  <script src="javascripts/views/draft.js" type="text/javascript"></script>
+  <script src="javascripts/views/app.js" type="text/javascript"></script>
+  <script src="javascripts/app.js" type="text/javascript"></script>
 </body>
 </html>
