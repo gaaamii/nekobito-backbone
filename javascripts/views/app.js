@@ -54,7 +54,7 @@ app.AppView = Backbone.View.extend({
 
   focusOnEditor: function() {
     this.hideSidebar();
-    this.$navigation.css("opacity", "0.5");
+    this.$navigation.animate({"opacity": "0.3"});
   },
 
   reactToKey: function(e) {

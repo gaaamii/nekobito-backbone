@@ -116,8 +116,12 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   height: 100%;
   overflow-y: scroll; 
 }
+#title, #body {
+  opacity: .6;
+}
 #title:focus, #body:focus {
   outline: 0;
+  opacity: 1.0;
 }
 #title {
   border: 0;
