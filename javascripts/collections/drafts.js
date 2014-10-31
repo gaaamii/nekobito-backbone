@@ -1,13 +1,22 @@
-// js/collections/drafts.js
+// javascripts/collections/drafts.js
 
-var app = app || {};
+define([
+  'underscore',
+  'backbone',
+  'backbone_localStorage',
+  'models/draft'
+], function(_, Backbone, Store, Draft){
 
-app.DraftsCollection = Backbone.Collection.extend({
+  var DraftsCollection = Backbone.Collection.extend({
+  
+    model: Draft,
+  
+    localStorage: new Store('drafts-backbone')
+  
+  });
 
-  model: app.Draft,
-
-  localStorage: new Backbone.LocalStorage('drafts-backbone')
+  var drafts = new DraftsCollection();
+  console.log(drafts);
+  return drafts;
 
 });
-
-app.drafts = new app.DraftsCollection();

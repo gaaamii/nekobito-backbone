@@ -49,21 +49,11 @@
     <div class="row-sidebar">
       <button class="btn-add" id="addBtn"><i class="fa fa-plus-circle"></i>Add New</button>
     </div>
-    <ul id="draftsList">
-    </ul>
+    <ul id="draftsList"></ul>
   </div>
   <script type="text/template" id="draft-template">
     <%- title %>
   </script>
-  <script src="javascripts/lib/jquery.min.js" type="text/javascript"></script>
-  <script src="javascripts/lib/underscore-min.js" type="text/javascript"></script>
-  <script src="javascripts/lib/backbone-min.js" type="text/javascript"></script>
-  <script src="javascripts/lib/backbone.localStorage-min.js" type="text/javascript"></script>
-  <script src="javascripts/lib/marked.js" type="text/javascript"></script>
-  <script src="javascripts/models/draft.js" type="text/javascript"></script>
-  <script src="javascripts/collections/drafts.js" type="text/javascript"></script>
-  <script src="javascripts/views/draft.js" type="text/javascript"></script>
-  <script src="javascripts/views/app.js" type="text/javascript"></script>
-  <script src="javascripts/app.js" type="text/javascript"></script>
+  <script data-main="javascripts/app.js" src="javascripts/lib/require/require.min.js"></script>
 </body>
 </html>

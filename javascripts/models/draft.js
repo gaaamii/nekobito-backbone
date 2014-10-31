@@ -1,29 +1,31 @@
-// js/models/draft.js
+// javascripts/models/draft.js
 
-var app = app || {};
-
-app.Draft = Backbone.Model.extend({
-
-  // Draft
-  // title: String
-  // body: String
+define(['underscore', 'backbone'], function(_, Backbone) {
+  var Draft = Backbone.Model.extend({
   
-  validate: function(attrs) {
-
-    if(!attrs.title) {
-      return "Title can't be blank.";
-    } else if(!attrs.body) {
-      return "Body can't be blank.";
-    }
-
-  },
-
-  initialize: function() {
-
-    this.on({
-      "invalid": this.printError
-    });
-
-  },
+    // Draft
+    // title: String
+    // body: String
+    
+    validate: function(attrs) {
+  
+      if(!attrs.title) {
+        return "Title can't be blank.";
+      } else if(!attrs.body) {
+        return "Body can't be blank.";
+      }
+  
+    },
+  
+    initialize: function() {
+  
+      this.on({
+        "invalid": this.printError
+      });
+  
+    },
+  
+  });
+  return Draft;
 
 });
