@@ -16,7 +16,6 @@ define([
   });
 
   var drafts = new DraftsCollection();
-  console.log(drafts);
   return drafts;
 
 });
