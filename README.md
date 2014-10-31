@@ -5,13 +5,13 @@ Nekobito is a browser-based Markdown editor which enables you to write more comf
 
 - [Nekobito](https://gaaamii.github.io/nekobito)
 
-# Usage
+## Usage
 
   - Write Markdown text in the left window
   - See the HTML preview in the right
   - Use the drafts
 
-## Keyboard Shortcuts
+### Keyboard Shortcuts
 
 ```
 Ctrl + n : Open
@@ -20,7 +20,7 @@ Ctrl + d : Delete
 Ctrl + l : Open
 ```
 
-### When sidebar is opened
+#### When sidebar is opened
 
 ```
 k: up
@@ -28,17 +28,14 @@ j: down
 o: open
 ```
 
-These might be changed for user's request (by issues or pull requests) . Worth discussing.
-
-# Technologies
-
-Nekobito uses open source projects.
-
-- [Marked](https://github.com/chjj/marked) - A full-featured markdown parser and compiler, written in JavaScript
-- [Twitter Bootstrap](http://getbootstrap.com/) - The most popular HTML, CSS, and JS framework 
-- [jQuery](http://jquery.com) - A fast, small, and feature-rich JavaScript library
-- [Backbone](http://backbonejs.org/) - A JavaScript framework which gives structure to web applications 
-
-# License
+## License
 
 MIT
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
