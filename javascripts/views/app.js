@@ -5,9 +5,10 @@ define([
   'underscore',
   'backbone',
   'marked',
+  'models/draft',
   'collections/drafts',
   'views/draft'
-], function($, _, Backbone, marked, Drafts, DraftView) {
+], function($, _, Backbone, marked, Draft, Drafts, DraftView) {
 
   var app = app || {};
   var AppView = Backbone.View.extend({
