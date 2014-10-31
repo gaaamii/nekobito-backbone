@@ -188,14 +188,14 @@ define([
       var draft, msg;
       // get the draft
       if (!app.draftId) {
-        draft = new app.Draft(this.attrsOnEditor());
+        draft = new Draft(this.attrsOnEditor());
       } else {
-        draft = app.drafts.get(app.draftId).set(this.attrsOnEditor());
+        draft = Drafts.get(app.draftId).set(this.attrsOnEditor());
       }
       // validate the draft
       if(draft.isValid()) {
         // create
-        app.drafts.create(draft);
+        Drafts.create(draft);
         this.refreshDraftId(draft.id);
         msg = "Saved.";
       } else {
