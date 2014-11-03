@@ -1,6 +1,7 @@
 // javascripts/models/draft.js
 
 define(['underscore', 'backbone'], function(_, Backbone) {
+
   var Draft = Backbone.Model.extend({
   
     // Draft
@@ -15,17 +16,10 @@ define(['underscore', 'backbone'], function(_, Backbone) {
         return "Body can't be blank.";
       }
   
-    },
-  
-    initialize: function() {
-  
-      this.on({
-        "invalid": this.printError
-      });
-  
-    },
+    }
   
   });
+
   return Draft;
 
 });
