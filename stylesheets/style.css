@@ -27,7 +27,7 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   margin: 0;
 }
 #main {
-  height: 93%;
+  height: 92%;
 }
 .alert { border: 0;}
 
@@ -114,7 +114,6 @@ body, .editor-wrapper, form, #editor { height: inherit; }
 #editor {
   width: 100%;
   height: 100%;
-  overflow-y: scroll; 
 }
 #title, #body {
   opacity: .6;
@@ -134,7 +133,7 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   border-bottom: 1px solid #eee;
   padding: 10px;
   width: 100%;
-  height: 100%;
+  height: 90%;
   color: #888;
   font-size: 14px;
 }
@@ -199,9 +198,11 @@ body, .editor-wrapper, form, #editor { height: inherit; }
 #draftsList {
   margin: 0;
   padding: 0;
+  height: 85%;
   overflow-y: scroll;
 }
 .draft-item {
+  overflow: hidden;
   list-style: none;
   height: 80px;
   padding: 20px;
