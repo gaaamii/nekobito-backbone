@@ -29,6 +29,7 @@ define([
       this.$body = $("#body");
       this.$notice = $("#notice");
   
+      this.$preview = $("#preview");
       this.$previewTitle = $("#preview-title");
       this.$previewBody = $("#preview-body");
   
