@@ -80,6 +80,9 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   color: rgb(0, 168, 72);
   background: #fff; 
   margin: 5px;
+  float:left;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 .menuBar:hover {
   background: rgb(0, 168, 72);
