@@ -10,7 +10,6 @@ define([
   'views/draft'
 ], function($, _, Backbone, marked, Draft, Drafts, DraftView) {
 
-  var app = app || {};
   var AppView = Backbone.View.extend({
   
     el: 'body',
@@ -19,6 +18,9 @@ define([
 
       // get records from localStorage
       Drafts.fetch();
+
+      // draft id
+      this.draftId = "";
   
       // cache the DOMs
       this.$navigation = $(".navigation");
@@ -68,6 +70,7 @@ define([
       this.$navigation.animate({"opacity": "0.3"});
     },
   
+    // TODO: use keymaster.js(https://github.com/madrobby/keymaster)
     reactToKey: function(e) {
       if(e.ctrlKey) {
         if(e.keyCode === 83) {
@@ -111,14 +114,14 @@ define([
     },
   
     refreshDraftId: function(draftId) {
-      app.draftId = draftId || "";
+      this.draftId = draftId || "";
     },
   
     // Destroy
     destroyDraft: function() {
-      if(app.draftId) {
+      if(this.draftId) {
         if(confirm("Are you sure?")) {
-          Drafts.get(app.draftId).destroy();
+          Drafts.get(this.draftId).destroy();
           this.openBlank();
         }
       } else {
@@ -137,7 +140,7 @@ define([
   
     openDraft: function(e){
       this.hideSidebar();
-      app.draftId = ($(e.target).attr("data-cid"));
+      this.draftId = ($(e.target).attr("data-cid"));
     },
   
     // Sidebar
@@ -189,10 +192,10 @@ define([
     saveDraft: function() {
       var draft, msg;
       // get the draft
-      if (!app.draftId) {
+      if (!this.draftId) {
         draft = new Draft(this.attrsOnEditor());
       } else {
-        draft = Drafts.get(app.draftId).set(this.attrsOnEditor());
+        draft = Drafts.get(this.draftId).set(this.attrsOnEditor());
       }
       // validate the draft
       if(draft.isValid()) {
