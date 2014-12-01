@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Nekobito is a Markdown text editor which enables you to write more comfortably.">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Nekobito - Markdown Editor on Browser</title>
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
+  <link rel="stylesheet" href="stylesheets/font-awesome.min.css" />
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="shortcut icon" href="images/favicon.ico">
+</head>
+<body>
+  <div class="menuBar">
+    <i class="fa fa-bars"></i>
+  </div>
+  <div class="navigation">
+    <span class="brand"><img src="images/nekobito.png" style="width: 15px; margin-right:3px; margin-top: -3px;">Nekobito - A Markown Text Editor on Browser</span>
+    <span style="position: absolute; top: 10px;">
+      <a href="https://github.com/gaaamii/nekobito" class="github-button" data-icon="octicon-mark-github" data-count-href="/gaaamii/nekobito/stargazers" data-count-api="/repos/gaaamii/nekobito#stargazers_count">Star</a>
+    </span>
+    <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  </div>
+  <div id="main" class="row">
+    <div class="col-sm-5 editor-wrapper">
+      <div id="editor">
+        <form>
+          <input type="text" id="title" placeholder="Title" autofocus tabindex="1">
+          <textarea id="body" placeholder="# Markdown text here." tabindex="2"></textarea>
+        </form>
+      </div>
+      <div id="notice" style="display: none;">
+      </div>
+      <div class="buttons">
+        <button class="btn btn-basic" id="deleteBtn">Delete</button>
+        <button class="btn btn-basic" id="saveBtn">Save</button>
+      </div>
+    </div>
+    <div class="col-sm-7 preview-wrapper">
+      <div id="preview">
+        <h1 id="preview-title"></h1>
+        <div id="preview-body">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar">
+    <div class="row-sidebar"></div>
+    <div class="row-sidebar">
+      <button class="btn-add" id="addBtn"><i class="fa fa-plus-circle"></i>Add New</button>
+    </div>
+    <ul id="draftsList"></ul>
+  </div>
+  <script type="text/template" id="draft-template">
+    <%- title %>
+  </script>
+  <script data-main="javascripts/app.js" src="javascripts/lib/require/require.min.js"></script>
+</body>
+</html>
