@@ -1,0 +1,9 @@
+extends _layout
+block body
+  include _header
+  include _main
+  include _sidebar
+block scripts
+  script#draft-template(type='text/template').
+    <%- title %>
+  script(data-main='scripts/app.js', src='scripts/lib/require.js')

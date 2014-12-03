@@ -27,7 +27,7 @@ define([
     },
   
     open: function() {
-      var title = this.model.get("title");
+      var title = this.model.get("title")
       var body = this.model.get("body");
       $("#title").val(title);
       $("#body").val(body)

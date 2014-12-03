@@ -1,0 +1,33 @@
+{
+  "name": "nekobito",
+  "version": "0.0.0",
+  "homepage": "https://github.com/gaaamii/nekobito",
+  "authors": [
+    "gaaamii <i1shi4ga4mi1@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "backbone": "~1.1.2",
+    "underscore": "~1.7.0",
+    "jquery": "~2.1.1",
+    "marked": "~0.3.2",
+    "backbone.localStorage": "~1.1.14",
+    "requirejs": "~2.1.15"
+  },
+  "overrides": {
+    "bootstrap": {
+      "ignore": "true"
+    }
+  },
+  "devDependencies": {
+    "fontawesome": "~4.2.0"
+  }
+}

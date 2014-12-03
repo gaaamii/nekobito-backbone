@@ -3,10 +3,10 @@
 // configure RequireJS
 require.config({
   paths: {
-    jquery: "lib/jquery.min",
-    underscore: "lib/underscore-min",
-    backbone: "lib/backbone-min",
-    backbone_localStorage: "lib/backbone.localStorage-min",
+    jquery: "lib/jquery",
+    underscore: "lib/underscore",
+    backbone: "lib/backbone",
+    backbone_localStorage: "lib/backbone.localStorage",
     marked: "lib/marked"
   }
 });

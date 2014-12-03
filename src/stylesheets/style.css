@@ -1,23 +1,21 @@
+@import 'bower_components/bootstrap.min.css';
+@import 'bower_components/font-awesome.min.css';
+
 /* basic size */
 h1,h2,h3,h4 {
   font-family: Helvetica;
   font-weight: bold;
 }
-h2,h3,h4 {
-  color: #555;
-}
-h1 { 
-  font-size: 22px;
-}
-h2 {
-  font-size: 20px;
-}
+h2,h3,h4 { color: #555; }
+h1 { font-size: 22px; }
+h2 { font-size: 20px; }
 h3 { font-size: 18px; }
 h4 { font-size: 16px; }
 
 /* overwrite bootstrap */
 html{ height: 100%; }
 body, .editor-wrapper, form, #editor { height: inherit; }
+.btn { font-size: 12px; }
 .btn:focus, .btn:active:focus, .btn.active:focus {
   outline: none;
 }

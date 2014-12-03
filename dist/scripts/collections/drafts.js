@@ -1,0 +1,1 @@
+define(["underscore","backbone","backbone_localStorage","models/draft"],function(e,o,n,a){var r=o.Collection.extend({model:a,localStorage:new n("drafts-backbone")}),c=new r;return c});
