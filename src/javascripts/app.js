@@ -15,6 +15,12 @@ require.config({
 
 require(['views/app'], function(AppView) {
 
+  if(location.origin === "nekobito.github.io") {
+    if(location.protocol !== "https:") {
+      location.protocol = "https:";
+    }
+  }
+
   // dropbox datastore api key
   APP_KEY = 'sq03i7awejt36wf';
 
