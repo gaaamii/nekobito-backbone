@@ -24,9 +24,7 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   padding: 0;
   margin: 0;
 }
-#main {
-  height: 92%;
-}
+#main { height: 92%; }
 .alert { border: 0;}
 
 /* Navigation */
@@ -48,26 +46,25 @@ body, .editor-wrapper, form, #editor { height: inherit; }
 }
 
 /* buttons */
-.btn-add {
+.btn-row {
   width: 100%;
   border-radius: 0;
-  background: #ccc;
-  color: #fff;
+  background: #000;
+  color: #bbb;
   border: 0;
-  font-size: 14px;
+  font-size: 12px;
   padding: 10px;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
-  background: rgb(0, 168, 72);
+  border-bottom: 1px solid #222;
   height: 100%;
 }
+.btn-row:hover { color: #fff; }
+.btn-sync-dropbox:hover {
+  background: #008EA8;
+}
 .btn-add:hover {
-  color: #fff;
-  background: rgb(0, 142, 61);
+  background: rgb(0, 168, 72);
 }
-.btn-add:focus {
-  outline: 0;
-}
+.btn-add:focus { outline: 0; }
 .menuBar {
   width: 34px;
   height: 34px;
@@ -152,7 +149,6 @@ body, .editor-wrapper, form, #editor { height: inherit; }
 #preview-title {
   text-align: center;
   margin-bottom: 40px;
-  font-family: serif;
   font-size: 28px;
   font-weight: normal;
   padding: 10px;
@@ -201,21 +197,20 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   padding: 0;
   height: 85%;
   overflow-y: scroll;
+  border-top: 1px solid #01AD38;
 }
 .draft-item {
   overflow: hidden;
   list-style: none;
-  height: 80px;
   padding: 20px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #222;
   cursor: pointer;
-  color: #aaa;
+  color: #ccc;
   transition: .1s;
 }
 .selected, .draft-item:hover {
-  background: rgb(0, 142, 61); 
-  color: #fff;
-  border: 0;
+  background: #000; 
+  color: #01AD38;
 }
 #notice {
   float: left;

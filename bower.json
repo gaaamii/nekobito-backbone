@@ -20,7 +20,9 @@
     "jquery": "~2.1.1",
     "marked": "~0.3.2",
     "backbone.localStorage": "~1.1.14",
-    "requirejs": "~2.1.15"
+    "requirejs": "~2.1.15",
+    "backbone.dropboxDatastore": "~0.5.0",
+    "dropbox-datastore": "~1.0.0"
   },
   "overrides": {
     "bootstrap": {

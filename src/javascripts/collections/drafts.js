@@ -3,19 +3,20 @@
 define([
   'underscore',
   'backbone',
-  'backbone_localStorage',
+  /*'backbone_localStorage',*/
+  'dropboxdatastore',
   'models/draft'
-], function(_, Backbone, Store, Draft){
+], function(_, Backbone, /*Store,*/ DropboxDatastore, Draft){
 
   var DraftsCollection = Backbone.Collection.extend({
   
     model: Draft,
   
-    localStorage: new Store('drafts-backbone')
-  
+    dropboxDatastore: new Backbone.DropboxDatastore('drafts')
+    // , localStorage: new Store('drafts-backbone'),
+
   });
 
-  var drafts = new DraftsCollection();
-  return drafts;
+  return new DraftsCollection();
 
 });

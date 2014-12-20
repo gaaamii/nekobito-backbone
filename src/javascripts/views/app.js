@@ -4,20 +4,34 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'dropbox',
+  'dropboxdatastore',
   'marked',
   'models/draft',
   'collections/drafts',
   'views/draft'
-], function($, _, Backbone, marked, Draft, Drafts, DraftView) {
+], function($, _, Backbone, Dropbox, Datastore, marked, Draft, Drafts, DraftView) {
 
   var AppView = Backbone.View.extend({
   
     el: 'body',
-  
+
     initialize: function() {
 
-      // get records from localStorage
-      Drafts.fetch();
+      this.client = Backbone.DropboxDatastore.client;
+
+      if (this.client.isAuthenticated()) {
+        // get records
+        Drafts.fetch();
+        var self = this;
+        this.$("#syncBtn")
+          .html('<i class="fa fa-sign-out"></i>Sign Out')
+          .attr("id", "#btn-sign-out")
+          .click(function() {
+            self.signOut();
+          });
+      }
+
 
       // draft id
       this.draftId = "";
@@ -34,7 +48,7 @@ define([
       this.$preview = $("#preview");
       this.$previewTitle = $("#preview-title");
       this.$previewBody = $("#preview-body");
-  
+
       // watch the collection
       this.listenTo(Drafts, "add", this.prependDraft);
       this.listenTo(Drafts, "destroy", this.refreshDraftId);
@@ -42,7 +56,12 @@ define([
       // set the views
       this.prependAllDrafts();
       this.preview();
-  
+
+    },
+
+    signOut: function() {
+      this.client.signOut({mustInvalidate: false});
+      location.reload();
     },
   
     events: {
@@ -57,7 +76,12 @@ define([
       "keyup #editor": "preview",
       "click #saveBtn": "saveDraft",
       "click #deleteBtn": "destroyDraft",
-      "click #addBtn": "openBlank"
+      "click #addBtn": "openBlank",
+      "click #syncBtn": "syncDropbox"
+    },
+
+    syncDropbox: function() {
+      if (!this.client.isAuthenticated()) this.client.authenticate();
     },
   
     // TODO: change function's name
@@ -68,6 +92,12 @@ define([
     focusOnEditor: function() {
       this.hideSidebar();
       this.$navigation.animate({"opacity": "0.3"});
+    },
+
+    updateCharacters: function() {
+      var body = $.trim(this.$body.val());
+      console.log(body);
+      this.$('#characters').prepend(num);
     },
   
     // TODO: use keymaster.js(https://github.com/madrobby/keymaster)

@@ -48,30 +48,13 @@ gulp.task 'js', ->
     .pipe uglify()
     .pipe gulp.dest('dist/scripts/')
 
+gulp.task 'watch', ->
+  gulp.watch('src/jade/*.jade', ['html'])
+  gulp.watch('src/javascripts/*.js', ['js'])
+  gulp.watch('src/javascripts/**/*.js', ['js'])
+  gulp.watch('src/stylesheets/*.css', ['css'])
+
 gulp.task 'clean', ->
   del(['dist/*'])
 
 gulp.task 'default', ['html','css', 'css-bootstrap', 'images', 'icons', 'js', 'bower-files']
-
-# gulp.task 'vendor', ->
-#   gulp.src bowerFiles()
-#     .pipe concat('vendor.js')
-#     .pipe uglify()
-#     .pipe gulp.dest './dist'
-
-# gulp.task 'js', ->
-#   browserify
-#     entries: ['./src/scripts/app.coffee']
-#     extensions: ['.coffee']
-#   .transform 'coffeeify'
-#   .bundle()
-#   .pipe source 'bundle.js'
-#   .pipe streamify(uglify())
-#   .pipe gulp.dest('dist/')
-# 
-# gulp.task 'watch', ->
-#   gulp.watch('src/styles/*.less', ['css'])
-#   gulp.watch('src/scripts/*.coffee', ['js'])
-#   gulp.watch('src/scripts/**/*.coffee', ['js'])
-# 
-# gulp.task 'default', ['html', 'css', 'js', 'vendor']
