@@ -15,7 +15,7 @@ require.config({
 
 require(['views/app'], function(AppView) {
 
-  if(location.origin === "nekobito.github.io") {
+  if(location.host === "nekobito.github.io") {
     if(location.protocol !== "https:") {
       location.protocol = "https:";
     }
