@@ -3,7 +3,7 @@ Nekobito
 
 Nekobito is a browser-based Markdown editor which enables you to write more comfortably. You can start to use without any setting. Click the link below.
 
-- [Nekobito](https://gaaamii.github.io/nekobito)
+- [Nekobito](https://nekobito.github.io)
 
 ## Usage
 
