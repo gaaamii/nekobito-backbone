@@ -176,6 +176,9 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   padding: 1em .5em;
   margin: 0;
 }
+#preview-body img {
+  max-width: 100%;
+}
 /* Sidebar */
 #sidebar {
   z-index: 1;
