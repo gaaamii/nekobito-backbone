@@ -188,8 +188,9 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   width: 250px;
   background: #191919;
   display: none;
-  position: absolute;
-  top:0;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .row-sidebar {
   height: 7%;
