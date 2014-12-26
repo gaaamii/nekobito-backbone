@@ -9,7 +9,8 @@ define([
   'marked',
   'models/draft',
   'collections/drafts',
-  'views/draft'
+  'views/draft',
+  'bootstrap'
 ], function($, _, Backbone, Dropbox, Datastore, marked, Draft, Drafts, DraftView) {
 
   var AppView = Backbone.View.extend({
@@ -37,7 +38,7 @@ define([
       this.draftId = "";
   
       // cache the DOMs
-      this.$navigation = $(".navigation");
+      this.$navigation = $(".navbar-default");
       this.$sidebar = $("#sidebar");
       this.$draftsList = $("#draftsList");
   

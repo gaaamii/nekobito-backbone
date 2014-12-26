@@ -9,7 +9,8 @@ require.config({
     dropbox: 'lib/dropbox-datastore-1.0.0',
     dropboxdatastore: 'lib/backbone.dropboxDatastore',
     backbone_localStorage: "lib/backbone.localStorage",
-    marked: "lib/marked"
+    marked: "lib/marked",
+    bootstrap: "lib/bootstrap.min"
   }
 });
 

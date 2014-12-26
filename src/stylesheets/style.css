@@ -28,13 +28,9 @@ body, .editor-wrapper, form, #editor { height: inherit; }
 .alert { border: 0;}
 
 /* Navigation */
-.navigation {
-  width: 100%;
-  height: 7%;
-  border-bottom: 1px solid #eee;
+.navbar {
   text-align: center;
   background: #fcfcfc;
-  margin-bottom: 2px;
   padding: 5px;
 }
 /* brand */

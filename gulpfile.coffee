@@ -28,9 +28,11 @@ gulp.task 'css', ->
     .pipe rename 'style.min.css'
     .pipe gulp.dest 'dist/'
 
-gulp.task 'css-bootstrap', ->
+gulp.task 'bootstrap', ->
   gulp.src 'bower_components/bootstrap/dist/css/bootstrap.min.css'
     .pipe gulp.dest 'dist/bower_components'
+  gulp.src 'bower_components/bootstrap/dist/js/bootstrap.min.js'
+    .pipe gulp.dest 'dist/scripts/lib'
 
 gulp.task 'icons', ->
   gulp.src 'bower_components/fontawesome/fonts/**.*'
@@ -57,4 +59,4 @@ gulp.task 'watch', ->
 gulp.task 'clean', ->
   del(['dist/*'])
 
-gulp.task 'default', ['html','css', 'css-bootstrap', 'images', 'icons', 'js', 'bower-files']
+gulp.task 'default', ['html','css', 'bootstrap', 'images', 'icons', 'js', 'bower-files']
