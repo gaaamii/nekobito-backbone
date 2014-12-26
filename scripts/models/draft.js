@@ -1,0 +1,1 @@
+define(["underscore","backbone"],function(e,n){var t=n.Model.extend({validate:function(e){return e.title?e.body?void 0:"Body can't be blank.":"Title can't be blank."}});return t});
