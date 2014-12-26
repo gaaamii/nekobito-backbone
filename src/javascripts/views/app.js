@@ -206,7 +206,6 @@ define([
   
     // Preview
     preview: function() {
-      var title = $(this.$title.val()
       this.$previewTitle.html(this.$title.val());
       this.$previewBody.html(marked(this.$body.val()));
     },
