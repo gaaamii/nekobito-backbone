@@ -180,13 +180,14 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   z-index: 1;
   padding: 0;
   margin: 0;
+  margin-left: -250px;
   height: 100%;
   width: 250px;
   background: #191919;
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
+  display: block;
 }
 .row-sidebar {
   height: 7%;

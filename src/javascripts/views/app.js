@@ -1,4 +1,6 @@
 // javascripts/views/app.js
+//
+// TODO: Create SubView
 
 define([
   'jquery',
@@ -60,11 +62,6 @@ define([
 
     },
 
-    signOut: function() {
-      this.client.signOut({mustInvalidate: false});
-      location.reload();
-    },
-  
     events: {
       // Whole 
       "keydown": "reactToKey",
@@ -79,6 +76,11 @@ define([
       "click #deleteBtn": "destroyDraft",
       "click #addBtn": "openBlank",
       "click #syncBtn": "syncDropbox"
+    },
+
+    signOut: function() {
+      this.client.signOut({mustInvalidate: false});
+      location.reload();
     },
 
     syncDropbox: function() {
@@ -97,7 +99,6 @@ define([
 
     updateCharacters: function() {
       var body = $.trim(this.$body.val());
-      console.log(body);
       this.$('#characters').prepend(num);
     },
   
@@ -177,14 +178,21 @@ define([
     // Sidebar
   
     showSidebar: function() {
-      this.$sidebar.fadeIn(150);
-      this.$title.blur();
-      this.$body.blur();
-      this.attachVimLikeKey();
+      var self = this
+      self.attachVimLikeKey();
+      self.$sidebar.animate({
+        "margin-left": 0,
+        "display": "block"
+      }, 50, function() {
+        self.$title.blur();
+        self.$body.blur();
+      });
     },
   
     hideSidebar: function() {
-      this.$sidebar.fadeOut(150, this.detachVimLikeKey());
+      this.$sidebar.animate({
+        "margin-left": "-250px"
+      }, 100, this.detachVimLikeKey());
     },
   
     prependDraft: function(draft) {
@@ -198,10 +206,10 @@ define([
   
     // Navigation
     toggleList: function() {
-      if(this.$sidebar.css("display") === "block") {
-        this.hideSidebar();
-      } else {
+      if(this.$sidebar.css("margin-left") === "-250px") {
         this.showSidebar();
+      } else {
+        this.hideSidebar();
       }
     },
   
