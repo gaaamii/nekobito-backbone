@@ -12,7 +12,7 @@ h2 { font-size: 20px; }
 h3 { font-size: 18px; }
 h4 { font-size: 16px; }
 
-/* overwrite bootstrap */
+/* override bootstrap */
 html{ height: 100%; }
 body, .editor-wrapper, form, #editor { height: inherit; }
 .btn { font-size: 12px; }
@@ -24,7 +24,7 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   padding: 0;
   margin: 0;
 }
-#main { height: 92%; }
+#main { height: 90%; }
 .alert { border: 0;}
 
 /* Navigation */
