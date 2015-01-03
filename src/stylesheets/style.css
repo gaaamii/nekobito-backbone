@@ -31,19 +31,20 @@ body, .editor-wrapper, form, #editor { height: inherit; }
 .navbar {
   text-align: center;
   background: #fcfcfc;
-  padding: 5px;
   border-radius: 0;
 }
 .navbar li button {
   padding: 10px;
-  margin-right: 5px;
+  border: 0;
+  border-left: 1px solid #eee;
   border-radius: 0;
+  height: 48px;
 }
 /* modals */
 .modal-content { border-radius: 0; }
 /* brand */
 .brand {
-  padding: 5px;
+  padding: 12px 0;
   margin: 0;
   height: 20px;
   display: inline-block;
