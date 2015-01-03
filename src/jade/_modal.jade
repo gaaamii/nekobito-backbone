@@ -1,0 +1,60 @@
+.modal.fade#help-modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type="button", data-dismiss="modal", aria-label="Close")
+          span(aria-hidden="true") &times;
+        h4.modal-title Keyboard Shortcuts
+      .modal-body
+        .panel.panel-default
+          table.table
+            thead
+              th Key
+              th Action
+            tbody
+              tr
+                td Ctrl + n
+                td New Draft
+              tr
+                td Ctrl + l
+                td Open Sidebar 
+              tr
+                td Ctrl + s
+                td Save Draft
+              tr
+                td Ctrl + d
+                td Delete Draft
+        h5
+          b When sidebar is opened
+        .panel.panel-default
+          table.table
+            thead
+              th Key
+              th Action
+            thead
+              tr
+                td k
+                td up
+              tr
+                td j
+                td down
+              tr
+                td o
+                td open
+.modal.fade#about-modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type="button", data-dismiss="modal", aria-label="Close")
+          span(aria-hidden="true") &times;
+        h4.modal-title About Nekobito
+      .modal-body
+        p
+          |Nekobito is a browser-based Markdown editor created by 
+          a(href="http://github.com/gaaamii", target=" _blank") @gaaamii
+          |.
+        p
+          |You can see the source code at 
+          a(href="http://github.com/gaaamii/nekobito", target=" _blank") the Github Repository
+        p
+          b Enjoy your writing!
