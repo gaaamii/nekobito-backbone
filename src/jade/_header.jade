@@ -4,55 +4,13 @@
   .container-fluid
     span.brand
       img(src='images/nekobito.png', style='width: 15px; margin-right:3px; margin-top: -3px;')
-      | Nekobito - A Markown Text Editor on Browser
-    span(style='position: absolute; top: 10px;')
-      a.github-button(href='https://github.com/gaaamii/nekobito', data-icon='octicon-mark-github', data-count-href='/gaaamii/nekobito/stargazers', data-count-api='/repos/gaaamii/nekobito#stargazers_count') Star
-    script#github-bjs(async='', defer='', src='https://buttons.github.io/buttons.js')
-    .nav.navbar-right
+      | Nekobito - A Markdown Text Editor on Browser
+    ul.nav.navbar-nav.navbar-right
       li
-        button.btn.btn-default.help(data-toggle="modal", data-target="#help-modal")
+        button.btn.btn-default.btn-positive.help(data-toggle="modal", data-target="#help-modal")
           i.fa.fa-question
-          |Keyboar Shortcuts
-.modal.fade#help-modal
-  .modal-dialog
-    .modal-content
-      .modal-header
-        button.close(type="button", data-dismiss="modal", aria-label="Close")
-          span(aria-hidden="true") &times;
-        h4.modal-title Keyboard Shortcuts
-      .modal-body
-        .panel.panel-default
-          table.table
-            thead
-              th Key
-              th Action
-            tbody
-              tr
-                td Ctrl + n
-                td New Draft
-              tr
-                td Ctrl + l
-                td Open Sidebar 
-              tr
-                td Ctrl + s
-                td Save Draft
-              tr
-                td Ctrl + d
-                td Delete Draft
-        h5
-          b When sidebar is opened
-        .panel.panel-default
-          table.table
-            thead
-              th Key
-              th Action
-            thead
-              tr
-                td k
-                td up
-              tr
-                td j
-                td down
-              tr
-                td o
-                td open
+          |Keyboard Shortcuts
+      li
+        button.btn.btn-default.btn-positive.about(data-toggle="modal", data-target="#about-modal")
+          i.fa.fa-info
+          |About

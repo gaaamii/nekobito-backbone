@@ -33,12 +33,20 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   background: #fcfcfc;
   padding: 5px;
 }
+.navbar li button {
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 0;
+}
 /* brand */
 .brand {
   padding: 5px;
-  margin: 0 20px;
+  margin: 0;
   height: 20px;
   display: inline-block;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 /* buttons */
@@ -57,10 +65,11 @@ body, .editor-wrapper, form, #editor { height: inherit; }
 .btn-sync-dropbox:hover {
   background: #008EA8;
 }
-.btn-add:hover {
+.btn-positive:hover {
   background: rgb(0, 168, 72);
+  color: #fff;
 }
-.btn-add:focus { outline: 0; }
+.btn-positive:focus { outline: 0; }
 .menuBar {
   width: 34px;
   height: 34px;
@@ -80,9 +89,7 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   color: #fff;
   border: 1px solid #eee;
 }
-.buttons {
-  text-align: right;
-}
+.buttons { text-align: right; }
 .btn-basic {
   background: #eee;
   color: #777;
@@ -97,7 +104,7 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   color: #fff;
   background: #000;
 }
-#saveBtn:hover {
+.btn-positive:hover {
   background: rgb(0, 168, 72);
 }
 .btn-basic:focus {
