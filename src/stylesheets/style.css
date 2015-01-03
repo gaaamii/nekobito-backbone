@@ -32,12 +32,15 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   text-align: center;
   background: #fcfcfc;
   padding: 5px;
+  border-radius: 0;
 }
 .navbar li button {
   padding: 10px;
   margin-right: 5px;
   border-radius: 0;
 }
+/* modals */
+.modal-content { border-radius: 0; }
 /* brand */
 .brand {
   padding: 5px;
