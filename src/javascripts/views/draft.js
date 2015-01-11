@@ -1,4 +1,5 @@
 // javascripts/views/draft.js
+// TODO: 33 - 36 cache elements when this view is initialized
 
 define([
   'jquery',

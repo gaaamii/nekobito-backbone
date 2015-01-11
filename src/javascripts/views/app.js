@@ -87,7 +87,6 @@ define([
       if (!this.client.isAuthenticated()) this.client.authenticate();
     },
   
-    // TODO: change function's name
     blurEditor: function() {
       this.$navigation.css("opacity", "1.0");
     },
@@ -97,9 +96,8 @@ define([
       this.$navigation.animate({"opacity": "0.3"});
     },
 
+    // WIP
     updateCharacters: function() {
-      var body = $.trim(this.$body.val());
-      this.$('#characters').prepend(num);
     },
   
     // TODO: use keymaster.js(https://github.com/madrobby/keymaster)
@@ -120,22 +118,25 @@ define([
     attachVimLikeKey: function() {
       var draftIndex = -1;
       var draftItems = this.$draftsList.children();
-      var $current = $(draftItems[draftIndex]).addClass("selected");
+      var $selectedItem = $(draftItems[draftIndex]).addClass("selected");
       this.$el.on("keypress", function(e) {
+        // j : go downside
         if(e.keyCode === 106) {
           if(draftIndex < draftItems.length -1) {
-            $current.removeClass("selected");
+            $selectedItem.removeClass("selected");
             draftIndex++;
-            $current = $(draftItems[draftIndex]).addClass("selected");
+            $selectedItem = $(draftItems[draftIndex]).addClass("selected");
           }
+        // j : go upside
         } else if(e.keyCode === 107) {
           if(draftIndex >= 0) {
-            $current.removeClass("selected");
+            $selectedItem.removeClass("selected");
             draftIndex--;
-            $current = $(draftItems[draftIndex]).addClass("selected");
+            $selectedItem = $(draftItems[draftIndex]).addClass("selected");
           }
+        // o : open the item
         } else if(e.keyCode === 111) {
-          $current.click();
+          $selectedItem.click();
         }
       });
     },
