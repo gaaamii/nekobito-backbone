@@ -32,7 +32,7 @@ o: open
 ```
 
 ## Donate
-@gaaamii, a creator of Nekobito, don't plan to receive any amount of money. But if you like Nekobito and support the development, please share the link on your social account. That would be a big help for this project.
+@gaaamii, a creator of Nekobito, don't plan to receive any amount of money. But if you like Nekobito and want to support the development, please share the link on your social account. That would be a big help for this project.
 
 - https://nekobito.github.io
 
