@@ -26,6 +26,9 @@ body, .editor-wrapper, form, #editor { height: inherit; }
 }
 #main { height: 90%; }
 .alert { border: 0;}
+/* modal */
+.modal-header { background: rgb(0, 168, 72); }
+.modal-title { color: #fff; }
 
 /* Navigation */
 .navbar {
@@ -224,6 +227,4 @@ body, .editor-wrapper, form, #editor { height: inherit; }
   background: #000; 
   color: #01AD38;
 }
-#notice {
-  float: left;
-}
+#notice { float: left; }
