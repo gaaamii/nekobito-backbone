@@ -1,6 +1,6 @@
 /**
  * Backbone localStorage Adapter
- * Version 1.1.14
+ * Version 1.1.15
  *
  * https://github.com/jeromegn/Backbone.localStorage
  */
@@ -33,4 +33,4 @@ e.removeItem(this.name);// Match all data items (e.g., "foo-ID") and remove.
 for(var r in e)t.test(r)&&e.removeItem(r);this.records.length=0},// Size of localStorage.
 _storageSize:function(){return this.localStorage().length},_itemName:function(e){return this.name+"-"+e}}),e.LocalStorage.sync=window.Store.sync=e.localSync=function(t,r,i){var o,n,s=a(r,"localStorage")||a(r.collection,"localStorage"),c=e.$?e.$.Deferred&&e.$.Deferred():e.Deferred&&e.Deferred();try{switch(t){case"read":o=void 0!=r.id?s.find(r):s.findAll();break;case"create":o=s.create(r);break;case"update":o=s.update(r);break;case"delete":o=s.destroy(r)}}catch(l){n=22===l.code&&0===s._storageSize()?"Private browsing is unsupported":l.message}// add compatibility with $.ajax
 // always execute callback for success and error
-return o?(i&&i.success&&("0.9.10"===e.VERSION?i.success(r,o,i):i.success(o)),c&&c.resolve(o)):(n=n?n:"Record Not Found",i&&i.error&&("0.9.10"===e.VERSION?i.error(r,n,i):i.error(n)),c&&c.reject(n)),i&&i.complete&&i.complete(o),c&&c.promise()},e.ajaxSync=e.sync,e.getSyncMethod=function(t){return t.localStorage||t.collection&&t.collection.localStorage?e.localSync:e.ajaxSync},e.sync=function(t,r,i){return e.getSyncMethod(r).apply(this,[t,r,i])},e.LocalStorage});
+return o?(i&&i.success&&("0.9.10"===e.VERSION?i.success(r,o,i):i.success(o)),c&&c.resolve(o)):(n=n?n:"Record Not Found",i&&i.error&&("0.9.10"===e.VERSION?i.error(r,n,i):i.error(n)),c&&c.reject(n)),i&&i.complete&&i.complete(o),c&&c.promise()},e.ajaxSync=e.sync,e.getSyncMethod=function(t,r){var i=r&&r.ajaxSync;return!i&&(t.localStorage||t.collection&&t.collection.localStorage)?e.localSync:e.ajaxSync},e.sync=function(t,r,i){return e.getSyncMethod(r,i).apply(this,[t,r,i])},e.LocalStorage});
