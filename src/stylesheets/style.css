@@ -226,6 +226,6 @@ body, .editor-wrapper, form, #editor { height: inherit; }
 .selected, .draft-item:hover {
   background: #000; 
   color: #01AD38;
-  margin-left: 10px;
+  padding-left: 30px;
 }
 #notice { float: left; }
