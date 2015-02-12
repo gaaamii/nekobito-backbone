@@ -36,6 +36,10 @@ o: open
 
 - https://nekobito.github.io
 
+When you have a question about this project, feel free to ask in [issues](https://github.com/gaaamii/nekobito/issues). And more lightly we have the gitter room to discuss.
+
+[https://gitter.im/gaaamii/nekobito](https://gitter.im/gaaamii/nekobito)
+
 ## License
 
 MIT
