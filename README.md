@@ -12,7 +12,7 @@ Nekobito is a browser-based Markdown editor which enables you to write more comf
   - Use the drafts
 
 ### Save drafts on cloud
-Nekobito uses [Dropbox Datastore API](https://www.dropbox.com/developers/datastore) as storage. By signing in with your Dropbox account, you can save drafts on cloud. Of course the text data is invisible for others because it would be related to your account.
+Nekobito uses [Dropbox Datastore API](https://www.dropbox.com/developers/datastore) as storage. By signing in with your Dropbox account, you can save drafts on cloud. Of course the text data is invisible for others because it's related to your account.
 
 ### Keyboard Shortcuts
 
