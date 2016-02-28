@@ -1,6 +1,15 @@
 Nekobito
 =========
 
+___
+**Warning: [The Datastore API](https://www.dropbox.com/developers-v1/datastore) has been deprecated.**
+
+**You can read about this issue in detail [here](https://blogs.dropbox.com/developers/2015/04/deprecating-the-sync-and-datastore-apis/).**
+
+**Nekobito is searching for an alternative, but can not ensure that your text data will be safe after Dropbox stops the API.**
+
+___
+
 Nekobito is a browser-based Markdown editor which enables you to write more comfortably. You can start to use without any setting. Click the link below.
 
 - [Nekobito](https://nekobito.github.io)
