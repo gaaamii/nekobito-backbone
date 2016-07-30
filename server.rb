@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  "Nekobito"
+  File.read(File.join('dist', 'index.html'))
 end
