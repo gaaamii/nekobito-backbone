@@ -43,12 +43,6 @@ o: open
 ## Support
 @gaaamii, a creator of Nekobito, don't plan to receive any amount of money. But if you like Nekobito and want to support the development, please share the link on your social account. That would be a big help for this project.
 
-- https://nekobito.github.io
-
-When you have a question about this project, feel free to ask in [issues](https://github.com/gaaamii/nekobito/issues). And more lightly we have the gitter room to discuss.
-
-[https://gitter.im/gaaamii/nekobito](https://gitter.im/gaaamii/nekobito)
-
 ## License
 
 MIT
