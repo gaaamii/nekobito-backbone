@@ -6,34 +6,33 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'dropbox',
-  'dropboxdatastore',
   'marked',
   'models/draft',
   'collections/drafts',
-  'views/draft',
-  'bootstrap'
-], function($, _, Backbone, Dropbox, Datastore, marked, Draft, Drafts, DraftView) {
+  'views/draft'
+  // 'bootstrap'
+], function($, _, Backbone, marked, Draft, Drafts, DraftView) {
 
   var AppView = Backbone.View.extend({
   
     el: 'body',
 
     initialize: function() {
+      Drafts.fetch();
 
-      this.client = Backbone.DropboxDatastore.client;
+      // this.client = Backbone.DropboxDatastore.client;
 
-      if (this.client.isAuthenticated()) {
-        // get records
-        Drafts.fetch();
-        var self = this;
-        this.$("#syncBtn")
-          .html('<i class="fa fa-sign-out"></i>Sign Out')
-          .attr("id", "#btn-sign-out")
-          .click(function() {
-            self.signOut();
-          });
-      }
+      // if (this.client.isAuthenticated()) {
+      //   // get records
+      //   Drafts.fetch();
+      //   var self = this;
+      //   this.$("#syncBtn")
+      //     .html('<i class="fa fa-sign-out"></i>Sign Out')
+      //     .attr("id", "#btn-sign-out")
+      //     .click(function() {
+      //       self.signOut();
+      //     });
+      // }
 
 
       // draft id
@@ -74,19 +73,14 @@ define([
       "keyup #editor": "preview",
       "click #saveBtn": "saveDraft",
       "click #deleteBtn": "destroyDraft",
-      "click #addBtn": "openBlank",
-      "click #syncBtn": "syncDropbox"
+      "click #addBtn": "openBlank"
     },
 
-    signOut: function() {
-      this.client.signOut({mustInvalidate: false});
-      location.reload();
-    },
+    // signOut: function() {
+    //   this.client.signOut({mustInvalidate: false});
+    //   location.reload();
+    // },
 
-    syncDropbox: function() {
-      if (!this.client.isAuthenticated()) this.client.authenticate();
-    },
-  
     blurEditor: function() {
       this.$navigation.css("opacity", "1.0");
     },
