@@ -1,1 +1,0 @@
-define(["underscore","backbone","dropboxdatastore","models/draft"],function(e,o,r,t){var a=o.Collection.extend({model:t,dropboxDatastore:new o.DropboxDatastore("drafts")});return new a});
