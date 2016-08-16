@@ -1,15 +1,15 @@
-#main.row
+app#main.row
   .col-sm-5.editor-wrapper
-    #editor
+    editor
       form
         input#title(type='text', placeholder='Title', autofocus='', tabindex='1')
         textarea#body(placeholder='# Markdown text here.', tabindex='2')
-    #count-characters
-    #notice(style='display: none;')
-    .buttons
-      button#deleteBtn.btn.btn-basic Delete
-      button#saveBtn.btn.btn-basic.btn-positive Save
+      #count-characters
+      #notice(style='display: none;')
+      .buttons
+        button#deleteBtn.btn.btn-basic Delete
+        button#saveBtn.btn.btn-basic.btn-positive Save
   .col-sm-7.preview-wrapper
-    #preview
+    preview
       h1#preview-title
       #preview-body

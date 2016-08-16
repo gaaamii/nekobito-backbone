@@ -1,1 +1,1 @@
-require.config({paths:{jquery:"lib/jquery",underscore:"lib/underscore",backbone:"lib/backbone",backbone_localStorage:"lib/backbone.localStorage",marked:"lib/marked",bootstrap:"lib/bootstrap.min"}}),require(["views/app"],function(e){new e});
+require.config({paths:{jquery:"lib/jquery",underscore:"lib/underscore",marked:"lib/marked",bootstrap:"lib/bootstrap.min",riot:"lib/riot"}}),require(["views/app"],function(r){riot.mount("app")});

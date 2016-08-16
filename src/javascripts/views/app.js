@@ -5,13 +5,12 @@
 define([
   'jquery',
   'underscore',
-  'backbone',
   'marked',
   'models/draft',
   'collections/drafts',
-  'views/draft'
-  // 'bootstrap'
-], function($, _, Backbone, marked, Draft, Drafts, DraftView) {
+  'views/draft',
+  'bootstrap'
+], function($, _, marked, Draft, Drafts, DraftView) {
 
   var AppView = Backbone.View.extend({
   
@@ -19,21 +18,6 @@ define([
 
     initialize: function() {
       Drafts.fetch();
-
-      // this.client = Backbone.DropboxDatastore.client;
-
-      // if (this.client.isAuthenticated()) {
-      //   // get records
-      //   Drafts.fetch();
-      //   var self = this;
-      //   this.$("#syncBtn")
-      //     .html('<i class="fa fa-sign-out"></i>Sign Out')
-      //     .attr("id", "#btn-sign-out")
-      //     .click(function() {
-      //       self.signOut();
-      //     });
-      // }
-
 
       // draft id
       this.draftId = "";
@@ -58,7 +42,6 @@ define([
       // set the views
       this.prependAllDrafts();
       this.preview();
-
     },
 
     events: {
